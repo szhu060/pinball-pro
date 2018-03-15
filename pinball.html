@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PINBALL GAME</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+			var speed_x = Math.random()*5;
+			var speed_y = Math.random()*5;
+
+				setInterval(function(){
+					var balltop = $('#box').position().top;
+					var ballleft = $('#box').position().left;
+					if( balltop < 0 || balltop > 280 ){
+						speed_y *= -1;
+					}
+					if( ballleft < 0 || ballleft > 380 ){
+						speed_x *= -1;
+					}
+					$('#box').css({
+						"top": balltop + speed_y + "px",
+						"left": ballleft + speed_x + "px"
+					});
+
+				},20);
+
+		});
+    </script>
+    <style type="text/css">
+    	#container {
+    		width:400px;
+    		height:300px;
+    		border:1px solid black;
+    		background-color: lightyellow;
+    		position:relative;
+    	}
+    	#box {
+    		width:20px;
+    		height:20px;
+    		background-color: red;
+    		position:absolute;
+    	}
+    </style>
+</head>
+<body>
+	<div id="container">
+		<div id="box"></div>		
+	</div>
+	<!-- 如何添加一个点击事件，让它开始运动 -->
+
+</body>
+</html>
